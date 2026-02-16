@@ -164,13 +164,14 @@
 
         /* ── Profile photo ── */
         .hero-photo {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            object-position: center 15%;
+            object-position: 62% 25%;
             border: 3px solid var(--border);
-            margin-bottom: 24px;
+            margin: 0 auto 24px;
+            display: block;
             box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(6, 182, 212, 0.08);
             transition: all 0.3s;
         }
@@ -179,7 +180,6 @@
             box-shadow: 0 0 60px var(--accent-glow), 0 0 100px rgba(6, 182, 212, 0.12);
             transform: scale(1.05);
         }
-
         /* ── Section base ── */
         section { padding: 100px 24px; }
         .section-inner { max-width: 1200px; margin: 0 auto; }
