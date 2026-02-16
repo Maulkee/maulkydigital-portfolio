@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaulkyDigital — SEO Content, Product Copy & AI Chatbots</title>
+    <meta name="description" content="Professional freelance services: SEO blog articles, e-commerce product descriptions, and custom AI chatbot development. Fast delivery, human quality.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0b;
+            --bg-card: #111113;
+            --bg-card-hover: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-muted: #a1a1aa;
+            --text-dim: #71717a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --green: #22c55e;
+            --orange: #f97316;
+            --cyan: #06b6d4;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 11, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-light), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-content { max-width: 720px; position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent-light), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+        .hero-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px var(--accent-glow);
+        }
+
+        /* ── Section base ── */
+        section { padding: 100px 24px; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-light);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 48px;
+            line-height: 1.7;
+        }
+
+        /* ── Services grid ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 36px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .service-card:nth-child(1) .service-icon { background: rgba(99, 102, 241, 0.15); }
+        .service-card:nth-child(2) .service-icon { background: rgba(249, 115, 22, 0.15); }
+        .service-card:nth-child(3) .service-icon { background: rgba(6, 182, 212, 0.15); }
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            padding: 4px 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+        .service-price {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .service-price strong {
+            color: var(--text);
+            font-size: 1.1rem;
+        }
+
+        /* ── Portfolio ── */
+        .portfolio-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 8px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover, .tab-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .sample-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .sample-header {
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .sample-header h3 { font-size: 1.1rem; font-weight: 600; }
+        .sample-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+        .sample-body {
+            padding: 32px;
+            font-size: 0.92rem;
+            line-height: 1.75;
+            color: var(--text-muted);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .sample-body::-webkit-scrollbar { width: 6px; }
+        .sample-body::-webkit-scrollbar-track { background: transparent; }
+        .sample-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        .sample-body h2 {
+            color: var(--text);
+            font-size: 1.1rem;
+            margin: 24px 0 12px;
+            font-weight: 600;
+        }
+        .sample-body h2:first-child { margin-top: 0; }
+        .sample-body ul { padding-left: 20px; margin: 8px 0; }
+        .sample-body li { margin-bottom: 4px; }
+        .sample-body strong { color: var(--text); }
+
+        /* Chat demo */
+        .chat-demo { padding: 32px; }
+        .chat-msg {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+        .chat-msg.bot { flex-direction: row; }
+        .chat-msg.user { flex-direction: row-reverse; }
+        .chat-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+        .chat-msg.bot .chat-avatar { background: var(--accent); color: white; }
+        .chat-msg.user .chat-avatar { background: var(--border); color: var(--text-muted); }
+        .chat-bubble {
+            max-width: 75%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+        .chat-msg.bot .chat-bubble {
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            border-bottom-left-radius: 4px;
+        }
+        .chat-msg.user .chat-bubble {
+            background: var(--accent);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .chat-bubble blockquote {
+            margin: 8px 0;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.05);
+            border-left: 2px solid var(--accent);
+            border-radius: 4px;
+            font-size: 0.82rem;
+        }
+
+        /* ── Process ── */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+        .step {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+        .step h4 { font-size: 1rem; margin-bottom: 8px; }
+        .step p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ── CTA section ── */
+        .cta-section {
+            text-align: center;
+            padding: 120px 24px;
+            position: relative;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .cta-section p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        /* ── Footer ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+        footer .langs {
+            margin-top: 8px;
+            font-size: 0.8rem;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .chat-bubble { max-width: 85%; }
+            section { padding: 60px 16px; }
+        }
+        @media (max-width: 480px) {
+            .process-steps { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <div class="nav-logo">MaulkyDigital</div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            Available for projects
+        </div>
+        <h1>Content & Chatbots<br>powered by <span class="gradient">AI precision</span></h1>
+        <p>I combine AI-assisted workflows with human expertise to deliver SEO content, product copy, and intelligent chatbots — faster, better, and ready to publish.</p>
+        <a href="#contact" class="hero-cta">
+            Start a project
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+    <div class="section-inner">
+        <p class="section-label">Services</p>
+        <h2 class="section-title">Three ways I can help</h2>
+        <p class="section-desc">Each service leverages AI tools for speed and consistency, with human review for quality and accuracy.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">&#9998;</div>
+                <h3>SEO Blog Articles</h3>
+                <p>Keyword-optimized articles that rank on Google and engage readers. Proper structure, natural keyword integration, and meta descriptions included.</p>
+                <div class="service-tags">
+                    <span class="tag">SEO</span>
+                    <span class="tag">Blog posts</span>
+                    <span class="tag">Long-form</span>
+                    <span class="tag">All niches</span>
+                </div>
+                <div class="service-price">Starting at <strong>$15</strong> &middot; 500-2000 words &middot; 24h delivery</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">&#128722;</div>
+                <h3>Product Descriptions</h3>
+                <p>Compelling e-commerce copy for Amazon, Shopify, Etsy, and more. Benefit-driven descriptions with SEO keywords and platform-specific formatting.</p>
+                <div class="service-tags">
+                    <span class="tag">Amazon</span>
+                    <span class="tag">Shopify</span>
+                    <span class="tag">Etsy</span>
+                    <span class="tag">Bulk orders</span>
+                </div>
+                <div class="service-price">Starting at <strong>$10</strong> &middot; 5-30 products &middot; 24h delivery</div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">&#129302;</div>
+                <h3>AI Chatbot Development</h3>
+                <p>Custom chatbots for Telegram and web that understand context, handle FAQs, take bookings, and escalate to humans when needed.</p>
+                <div class="service-tags">
+                    <span class="tag">Telegram</span>
+                    <span class="tag">Web widget</span>
+                    <span class="tag">Claude AI</span>
+                    <span class="tag">API integrations</span>
+                </div>
+                <div class="service-price">Starting at <strong>$100</strong> &middot; FAQ to full integration &middot; 3-14 days</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio" style="background: var(--bg-card);">
+    <div class="section-inner">
+        <p class="section-label">Portfolio</p>
+        <h2 class="section-title">See the work</h2>
+        <p class="section-desc">Real samples demonstrating quality, structure, and attention to detail.</p>
+
+        <div class="portfolio-tabs">
+            <button class="tab-btn active" onclick="showTab('seo')">SEO Article</button>
+            <button class="tab-btn" onclick="showTab('product')">Product Descriptions</button>
+            <button class="tab-btn" onclick="showTab('chatbot')">Chatbot Demo</button>
+        </div>
+
+        <!-- SEO Article sample -->
+        <div id="tab-seo" class="tab-content active">
+            <div class="sample-card">
+                <div class="sample-header">
+                    <h3>10 Proven Strategies to Reduce Cart Abandonment in 2026</h3>
+                    <div class="sample-meta">
+                        <span>~1,450 words</span>
+                        <span>E-commerce niche</span>
+                        <span>SEO optimized</span>
+                    </div>
+                </div>
+                <div class="sample-body">
+                    <p><em>Meta Description: Discover 10 proven strategies to reduce cart abandonment in 2026. From one-click checkout to AI-powered recovery, learn how top stores convert more visitors into buyers.</em></p>
+
+                    <h2>1. Eliminate Surprise Costs at Checkout</h2>
+                    <p>The number one reason shoppers abandon carts is unexpected fees. A 2025 Baymard Institute study found that 48% of abandoned carts are caused by extra costs like shipping, taxes, and handling fees that appear only at checkout.</p>
+                    <ul>
+                        <li>Display shipping costs on the product page, not just at checkout</li>
+                        <li>Use a shipping calculator that updates in real time</li>
+                        <li>If you offer free shipping above a threshold, make it visible on every page</li>
+                    </ul>
+                    <p>Stores that moved shipping cost disclosure to the product page saw completion rates increase by <strong>18-25%</strong>.</p>
+
+                    <h2>2. Simplify Checkout to Three Steps or Fewer</h2>
+                    <p>The average checkout has 5.1 form fields and requires 3-4 pages. Every additional step is a chance for the shopper to leave.</p>
+                    <ul>
+                        <li>Offer guest checkout — mandatory accounts kill 26% of sales</li>
+                        <li>Use auto-fill for address fields</li>
+                        <li>Show a progress bar</li>
+                        <li>Test single-page checkout layouts</li>
+                    </ul>
+
+                    <h2>3. Add Multiple Payment Options</h2>
+                    <p>If a shopper's preferred method isn't available, 13% abandon. Essential in 2026: credit/debit, digital wallets (Apple Pay, Google Pay), and Buy Now, Pay Later (Klarna, Afterpay). BNPL increases AOV by <strong>20-30%</strong>.</p>
+
+                    <h2>4. Build Trust With Security Signals</h2>
+                    <p>SSL certificates, payment badges, visible reviews, clear return policies, and live chat reduce hesitation. Trust badges near payment forms increase conversions by <strong>42%</strong> for smaller brands.</p>
+
+                    <h2>5. Deploy Exit-Intent Popups Strategically</h2>
+                    <p>When done well, exit-intent recovers 5-15% of abandoning visitors. Offer a small discount, keep it simple, show once per session, and personalize based on cart contents.</p>
+
+                    <h2>6-10: Mobile Optimization, Email Sequences, Social Proof, Save-for-Later & AI Recovery</h2>
+                    <p>The full article covers mobile checkout essentials (48px buttons, numeric keyboards, sub-3s load), abandoned cart email sequences (3-email flow), real-time social proof, persistent carts, and AI-powered personalized recovery.</p>
+
+                    <p style="margin-top: 24px; padding: 16px; background: rgba(99,102,241,0.1); border-radius: 8px; font-size: 0.85rem;"><strong>This is an excerpt.</strong> The full 1,450-word article is available upon request.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Descriptions sample -->
+        <div id="tab-product" class="tab-content">
+            <div class="sample-card">
+                <div class="sample-header">
+                    <h3>Clean Beauty — Skincare Collection (5 products)</h3>
+                    <div class="sample-meta">
+                        <span>~150 words each</span>
+                        <span>Shopify format</span>
+                        <span>Premium tone</span>
+                    </div>
+                </div>
+                <div class="sample-body">
+                    <h2>Hydra-Glow Vitamin C Serum — 30ml</h2>
+                    <p>Your morning routine just found its anchor. This lightweight vitamin C serum delivers a visible brightening effect from the first week, fading dark spots and evening out skin tone without irritation.</p>
+                    <p>Formulated with 15% L-ascorbic acid stabilized in a featherweight hyaluronic acid base, it absorbs in seconds and layers beautifully under sunscreen and makeup.</p>
+                    <ul>
+                        <li><strong>Brightens</strong> dull skin and fades hyperpigmentation within 4-6 weeks</li>
+                        <li><strong>15% L-ascorbic acid</strong> + kakadu plum for double-source vitamin C</li>
+                        <li><strong>Hyaluronic acid</strong> base hydrates while treating</li>
+                        <li><strong>Lightweight</strong>, fast-absorbing — no pilling under makeup</li>
+                        <li>Fragrance-free, vegan, cruelty-free</li>
+                    </ul>
+
+                    <h2>Midnight Recovery Balm — 50ml</h2>
+                    <p>Your skin does its heaviest repair work while you sleep. This rich overnight balm supports that process with bakuchiol, squalane, and blue tansy — calming inflammation, restoring moisture, and strengthening your barrier by morning.</p>
+                    <ul>
+                        <li><strong>Bakuchiol</strong> delivers retinol-like results without irritation</li>
+                        <li><strong>Squalane and shea butter</strong> restore the moisture barrier</li>
+                        <li><strong>Blue tansy</strong> soothes redness and calms stressed skin</li>
+                        <li>Non-comedogenic — won't clog pores</li>
+                        <li>No parabens, sulfates, synthetic fragrance, or mineral oil</li>
+                    </ul>
+
+                    <h2>Gentle Enzyme Exfoliant — 75ml</h2>
+                    <p>Forget harsh scrubs. This enzyme exfoliant uses papaya and pineapple enzymes to dissolve dead cells without physical abrasion. Smoother, brighter skin that never feels stripped.</p>
+                    <ul>
+                        <li>Papaya and pineapple enzymes — no micro-tears</li>
+                        <li>Gel-to-milk texture for a sensorial experience</li>
+                        <li>Chamomile and aloe vera calm during exfoliation</li>
+                        <li>Safe for sensitive and redness-prone skin</li>
+                    </ul>
+
+                    <p style="margin-top: 24px; padding: 16px; background: rgba(249,115,22,0.1); border-radius: 8px; font-size: 0.85rem;"><strong>3 of 5 products shown.</strong> Full collection includes Barrier Repair Moisturizer and Rose Quartz Facial Mist.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot Demo -->
+        <div id="tab-chatbot" class="tab-content">
+            <div class="sample-card">
+                <div class="sample-header">
+                    <h3>MarcoBot — Trattoria da Marco (Italian Restaurant)</h3>
+                    <div class="sample-meta">
+                        <span>Telegram</span>
+                        <span>10 exchanges</span>
+                        <span>FAQ + Reservations</span>
+                    </div>
+                </div>
+                <div class="chat-demo">
+                    <div class="chat-msg user">
+                        <div class="chat-avatar">S</div>
+                        <div class="chat-bubble">Hi there</div>
+                    </div>
+                    <div class="chat-msg bot">
+                        <div class="chat-avatar">M</div>
+                        <div class="chat-bubble">Ciao! Welcome to Trattoria da Marco. I'm here to help you with reservations, our menu, opening hours, or anything else you need. What can I do for you today?</div>
+                    </div>
+                    <div class="chat-msg user">
+                        <div class="chat-avatar">S</div>
+                        <div class="chat-bubble">yeah I want to reserve a table for 4 people friday night</div>
+                    </div>
+                    <div class="chat-msg bot">
+                        <div class="chat-avatar">M</div>
+                        <div class="chat-bubble">Great choice for a Friday evening! Let me set that up.<br><br>I just need a couple of details:<br>&#8226; <strong>Preferred time?</strong> We have openings at 6:00, 7:30, 8:00, and 9:00 PM.<br>&#8226; <strong>Name for the reservation?</strong></div>
+                    </div>
+                    <div class="chat-msg user">
+                        <div class="chat-avatar">S</div>
+                        <div class="chat-bubble">8pm, name is Sarah</div>
+                    </div>
+                    <div class="chat-msg bot">
+                        <div class="chat-avatar">M</div>
+                        <div class="chat-bubble">Perfect. Here's your reservation:<br><blockquote><strong>Trattoria da Marco</strong><br>Friday, Feb 20 at 8:00 PM<br>Party of 4 &middot; Name: Sarah</blockquote>You're all set! Want to see the menu?</div>
+                    </div>
+                    <div class="chat-msg user">
+                        <div class="chat-avatar">S</div>
+                        <div class="chat-bubble">I have a peanut allergy. Is that a problem?</div>
+                    </div>
+                    <div class="chat-msg bot">
+                        <div class="chat-avatar">M</div>
+                        <div class="chat-bubble">Thank you for letting me know — we take allergies very seriously.<br><br>Our kitchen does not use peanuts or peanut oil. We do use tree nuts in a few items (panna cotta has almonds, pesto uses pine nuts).<br><br>I've added an allergy note to your reservation. Is the allergy only peanuts, or should I note tree nuts as well?</div>
+                    </div>
+                    <div class="chat-msg user">
+                        <div class="chat-avatar">S</div>
+                        <div class="chat-bubble">just peanuts, tree nuts are fine. Thanks!</div>
+                    </div>
+                    <div class="chat-msg bot">
+                        <div class="chat-avatar">M</div>
+                        <div class="chat-bubble">Noted — peanut allergy only. Your reservation is updated. Enjoy the Friday dinner! Buon appetito! &#127470;&#127481;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process -->
+<section id="process">
+    <div class="section-inner">
+        <p class="section-label">Process</p>
+        <h2 class="section-title">How it works</h2>
+        <p class="section-desc">Simple, transparent, and fast — from brief to delivery.</p>
+
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Share your brief</h4>
+                <p>Tell me what you need: topic, keywords, tone, audience, platform. The more detail, the better the result.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>AI-assisted production</h4>
+                <p>I use AI tools for research and drafting, then personally review, edit, and polish everything.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Quality review</h4>
+                <p>Every deliverable passes plagiarism checks, SEO validation, and a final human quality review.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>Delivery + revisions</h4>
+                <p>You receive publication-ready work on time, with revisions included in every package.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-section">
+    <div class="section-inner" style="position: relative; z-index: 1;">
+        <h2>Ready to start?</h2>
+        <p>Message me on Fiverr and let's discuss your project.</p>
+        <a href="https://www.fiverr.com/maulkydigital" class="hero-cta" target="_blank" rel="noopener">
+            View my Fiverr profile
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 MaulkyDigital. All rights reserved.</p>
+    <p class="langs">English &middot; Fran&ccedil;ais</p>
+</footer>
+
+<script>
+    function showTab(name) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        document.getElementById('tab-' + name).classList.add('active');
+        event.target.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
